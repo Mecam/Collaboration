@@ -4,10 +4,34 @@
 /*Includes*/
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
+#include "Utils.h"
+#include "ShaderProgram.h"
+#include "ShaderDat.h"
 using namespace std;
 
- 
+vector<GLfloat> vertices = {
+   -1.0f, 1.0f, 0.0f,
+   -1.0f,-1.0f, 0.0f,
+	1.0f,-1.0f, 0.0f,
+
+	1.0f,-1.0f, 0.0f,
+	1.0f, 1.0f, 0.0f,
+   -1.0f, 1.0f, 0.0f
+};
+
+vector<GLfloat> texPos = {
+	
+
+	1.0f, 0.0f,
+	1.0f, 1.0f,
+	0.0f, 1.0f,
+
+	0.0f, 1.0f,
+	0.0f, 0.0f,
+	1.0f, 0.0f,
+};
+
+
 void main()
 {
 	glfwInit();
@@ -29,11 +53,19 @@ void main()
 	glewExperimental = GL_TRUE;
 	glewInit();
 
+	VertexObject vao(vertices, texPos);
+	ShaderProgram program(basicVertex, basicFragment);
+	Texture tex("doge.png");
+
 	while (!glfwWindowShouldClose(window))
 	{
 		glfwPollEvents();
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+		vao.use();
+		program.use();
+		tex.use();
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 		if(glfwGetKey(window, GLFW_KEY_ESCAPE) == true)
 			glfwSetWindowShouldClose(window, GL_TRUE);
 
