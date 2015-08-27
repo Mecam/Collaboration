@@ -17,8 +17,6 @@ using namespace std;
 
 void main()
 {
-	int a = 1;
-	a++;
 	DBOUT("\n" << "This Appears in the Output window" << "\n");
 	while (GetAsyncKeyState(VK_ESCAPE) >= 0)
 	{
