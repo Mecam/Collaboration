@@ -7,7 +7,7 @@
 using namespace std;
 
 
-double* main()
+void main()
 {
 	int a = 1;
 	a++;
