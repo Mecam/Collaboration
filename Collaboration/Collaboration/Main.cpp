@@ -2,7 +2,6 @@
 //Program Entrypoint
 
 /*Includes*/
-#include <Windows.h>
 #include <string>
 using namespace std;
 
