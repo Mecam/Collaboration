@@ -70,7 +70,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Michael Luczynski\Source\Repos\Collaboration\Collaboration\Collaboration\Libraries\GLlibs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\Conner\Source\Repos\Collaboration\Collaboration\Collaboration\Libraries\GLlibs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
