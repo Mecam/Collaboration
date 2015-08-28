@@ -128,6 +128,11 @@
   <ItemGroup>
     <Image Include="Tex\Coffee_Not_Found.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ShaderDat.h" />
+    <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Utils.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
