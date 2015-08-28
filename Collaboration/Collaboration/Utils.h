@@ -75,6 +75,7 @@ public:
 		glGenBuffers(1, &ebo);
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 		printf("%u\n", vbo);
 		
 		
@@ -85,7 +86,7 @@ public:
 
 		cout << verts.size() * sizeof(GLfloat) << endl;
 		inds = indices;
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+		
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, inds.size() * sizeof(GLuint), &inds[0], GL_STATIC_DRAW);
 
 		glEnableVertexAttribArray(0);
