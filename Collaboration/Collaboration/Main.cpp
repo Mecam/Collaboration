@@ -12,25 +12,24 @@
 #include "ShaderDat.h"
 using namespace std;
 
-vector<GLfloat> vertices = {
+vector<GLfloat> vertices = 
+{
 	-1.0f, 1.0f, 0.0f,//Top Left
 	1.0f,-1.0f, 0.0f,//Bottom Right
 	-1.0f,-1.0f, 0.0f,//Bottom Left
 	1.0f, 1.0f, 0.0f,//Top  Right
-	
-	 
 };
 
-vector<GLfloat> texPos = {
-
+vector<GLfloat> texPos = 
+{
 	0.0f, 0.0f,//Top Left
 	1.0f, 1.0f,//Bottom Right
 	0.0f, 1.0f,//Bottom Left
 	1.0f, 0.0f,//Top  Right
- 
 };
 
-vector<GLuint> indices = {
+vector<GLuint> indices = 
+{
 	0, 1, 2,  // First Triangle
 	0, 3, 1   // Second Triangle
 };
