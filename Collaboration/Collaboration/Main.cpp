@@ -5,7 +5,7 @@
 //Program Entrypoint
 
 /*Includes*/
-//#include <GL/glew.h>
+ 
 #include "Libraries\GLlibs\GL\glew.h"
 #include <GLFW/glfw3.h>
 #include "Utils.h"
