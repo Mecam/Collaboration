@@ -16,24 +16,26 @@ vector<GLfloat> vertices = {
 	-1.0f, 1.0f, 0.0f,//Top Left
 	1.0f,-1.0f, 0.0f,//Bottom Right
 	-1.0f,-1.0f, 0.0f,//Bottom Left
-
 	1.0f, 1.0f, 0.0f,//Top  Right
-	1.0f,-1.0f, 0.0f,//Bottom Right
-	-1.0f, 1.0f, 0.0f,//Top Left
+	
+	 
 };
+
+ 
 
 vector<GLfloat> texPos = {
 
 	0.0f, 0.0f,//Top Left
 	1.0f, 1.0f,//Bottom Right
 	0.0f, 1.0f,//Bottom Left
-
 	1.0f, 0.0f,//Top  Right
-	1.0f, 1.0f,//Bottom Right
-	0.0f, 0.0f,//Top Left
+ 
 };
 
-
+vector<GLuint> indices = {
+	0, 1, 2,  // First Triangle
+	0, 3, 1   // Second Triangle
+};
 void main()
 {
 	glfwInit();
@@ -55,7 +57,7 @@ void main()
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	VertexObject vao(vertices, texPos);
+	VertexObject vao(vertices, texPos, indices);
 	ShaderProgram program(basicVertex, basicFragment);
 	Texture tex("Tex/doge.png");
 
@@ -67,7 +69,8 @@ void main()
 		vao.use();
 		program.use();
 		tex.use();
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		resetV();
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == true)
 			glfwSetWindowShouldClose(window, GL_TRUE);
 

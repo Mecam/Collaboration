@@ -13,7 +13,7 @@ public:
 	GLuint ebo;
 	int i;
 	vector<GLfloat> data;
-
+	vector<GLuint> inds;
 	VertexObject(vector<GLfloat> verts, vector<GLfloat> tex, vector<GLfloat> norms)
 	{
 		glGenVertexArrays(1, &vao);
@@ -68,7 +68,7 @@ public:
 
 
 	}
-	VertexObject(vector<GLfloat> verts, vector<GLfloat> tex, vector<GLfloat> norms, vector <GLfloat> indices)
+	VertexObject(vector<GLfloat> verts, vector<GLfloat> tex, vector <GLuint> indices)
 	{
 		glGenVertexArrays(1, &vao);
 		glGenBuffers(1, &vbo);
@@ -76,23 +76,23 @@ public:
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		printf("%u\n", vbo);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), &indices[0], GL_STATIC_DRAW);
-
-
+		
+		
 		data.insert(data.end(), verts.begin(), verts.end());
 		data.insert(data.end(), tex.begin(), tex.end());
-		data.insert(data.end(), norms.begin(), norms.end());
+	 
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STATIC_DRAW);
 
 		cout << verts.size() * sizeof(GLfloat) << endl;
+		inds = indices;
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, inds.size() * sizeof(GLuint), &inds[0], GL_STATIC_DRAW);
 
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
 		glEnableVertexAttribArray(1);
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * verts.size()));
-		glEnableVertexAttribArray(2);
-		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * (verts.size() + tex.size())));
+		 
 
 
 		glBindVertexArray(0);
