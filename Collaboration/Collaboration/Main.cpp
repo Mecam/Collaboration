@@ -42,8 +42,9 @@ void main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow* window = glfwCreateWindow(1024, 512, "Game", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(512, 512, "Game", nullptr, nullptr);
 
 	if (!window)
 	{
@@ -57,7 +58,7 @@ void main()
 
 	VertexObject vao(vertices, texPos, indices);
 	ShaderProgram program(basicVertex, basicFragment);
-	Texture tex("Tex/Coffee_Not_Found.png");
+	Texture tex("Tex/doge.png");
 
 	while (!glfwWindowShouldClose(window))
 	{
