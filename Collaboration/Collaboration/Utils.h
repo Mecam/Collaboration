@@ -10,6 +10,7 @@ class VertexObject
 public:
 	GLuint vao;
 	GLuint vbo;
+	GLuint ebo;
 	int i;
 	vector<GLfloat> data;
 
@@ -66,6 +67,35 @@ public:
 
 
 
+	}
+	VertexObject(vector<GLfloat> verts, vector<GLfloat> tex, vector<GLfloat> norms, vector <GLfloat> indices)
+	{
+		glGenVertexArrays(1, &vao);
+		glGenBuffers(1, &vbo);
+		glGenBuffers(1, &ebo);
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+		printf("%u\n", vbo);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), &indices[0], GL_STATIC_DRAW);
+
+
+		data.insert(data.end(), verts.begin(), verts.end());
+		data.insert(data.end(), tex.begin(), tex.end());
+		data.insert(data.end(), norms.begin(), norms.end());
+		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STATIC_DRAW);
+
+		cout << verts.size() * sizeof(GLfloat) << endl;
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+		glEnableVertexAttribArray(1);
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * verts.size()));
+		glEnableVertexAttribArray(2);
+		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * (verts.size() + tex.size())));
+
+
+		glBindVertexArray(0);
 	}
 	void ConfBuf(vector<GLfloat> verts, vector<GLfloat> texture, vector<GLfloat> norms)
 	{
