@@ -1,13 +1,12 @@
 
 
-
 #define GLEW_STATIC
 //Program Entrypoint
 
 /*Includes*/
- 
+//DO NOT COMMIT THE VCXPROJ FILE !!!!!!!!!!!!!!!!!!!!!!!//
 #include "Libraries\GLlibs\GL\glew.h"
-#include <GLFW/glfw3.h>
+#include "Libraries\GLlibs\GLFW\glfw3.h"
 #include "Utils.h"
 #include "ShaderProgram.h"
 #include "ShaderDat.h"
@@ -17,24 +16,26 @@ vector<GLfloat> vertices = {
 	-1.0f, 1.0f, 0.0f,//Top Left
 	1.0f,-1.0f, 0.0f,//Bottom Right
 	-1.0f,-1.0f, 0.0f,//Bottom Left
-
 	1.0f, 1.0f, 0.0f,//Top  Right
-	1.0f,-1.0f, 0.0f,//Bottom Right
-	-1.0f, 1.0f, 0.0f,//Top Left
+	
+	 
 };
+
+ 
 
 vector<GLfloat> texPos = {
 
 	0.0f, 0.0f,//Top Left
 	1.0f, 1.0f,//Bottom Right
 	0.0f, 1.0f,//Bottom Left
-
 	1.0f, 0.0f,//Top  Right
-	1.0f, 1.0f,//Bottom Right
-	0.0f, 0.0f,//Top Left
+ 
 };
 
-
+vector<GLuint> indices = {
+	0, 1, 2,  // First Triangle
+	0, 3, 1   // Second Triangle
+};
 void main()
 {
 	glfwInit();
@@ -44,7 +45,7 @@ void main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-	GLFWwindow* window = glfwCreateWindow(1024, 512, "Game", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(256, 256, "Game", nullptr, nullptr);
 
 	if (!window)
 	{
@@ -56,9 +57,9 @@ void main()
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	VertexObject vao(vertices, texPos);
+	VertexObject vao(vertices, texPos, indices);
 	ShaderProgram program(basicVertex, basicFragment);
-	Texture tex("Tex/Coffee_Not_Found.png");
+	Texture tex("Tex/doge.png");
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -68,7 +69,8 @@ void main()
 		vao.use();
 		program.use();
 		tex.use();
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		resetV();
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == true)
 			glfwSetWindowShouldClose(window, GL_TRUE);
 
