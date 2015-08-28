@@ -45,7 +45,7 @@ void main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-	GLFWwindow* window = glfwCreateWindow(900, 900, "Game", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(256, 256, "Game", nullptr, nullptr);
 
 	if (!window)
 	{
