@@ -1,3 +1,6 @@
+
+
+
 #define GLEW_STATIC
 //Program Entrypoint
 
@@ -11,25 +14,24 @@
 using namespace std;
 
 vector<GLfloat> vertices = {
-   -1.0f, 1.0f, 0.0f,
-   -1.0f,-1.0f, 0.0f,
-	1.0f,-1.0f, 0.0f,
+	-1.0f, 1.0f, 0.0f,//Top Left
+	1.0f,-1.0f, 0.0f,//Bottom Right
+	-1.0f,-1.0f, 0.0f,//Bottom Left
 
-	1.0f,-1.0f, 0.0f,
-	1.0f, 1.0f, 0.0f,
-   -1.0f, 1.0f, 0.0f
+	1.0f, 1.0f, 0.0f,//Top  Right
+	1.0f,-1.0f, 0.0f,//Bottom Right
+	-1.0f, 1.0f, 0.0f,//Top Left
 };
 
 vector<GLfloat> texPos = {
-	
 
-	1.0f, 0.0f,
-	1.0f, 1.0f,
-	0.0f, 1.0f,
+	0.0f, 0.0f,//Top Left
+	1.0f, 1.0f,//Bottom Right
+	0.0f, 1.0f,//Bottom Left
 
-	0.0f, 1.0f,
-	0.0f, 0.0f,
-	1.0f, 0.0f,
+	1.0f, 0.0f,//Top  Right
+	1.0f, 1.0f,//Bottom Right
+	0.0f, 0.0f,//Top Left
 };
 
 
@@ -42,7 +44,7 @@ void main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-	GLFWwindow* window = glfwCreateWindow(800, 600, "Game", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(1024, 512, "Game", nullptr, nullptr);
 
 	if (!window)
 	{
@@ -67,7 +69,7 @@ void main()
 		program.use();
 		tex.use();
 		glDrawArrays(GL_TRIANGLES, 0, 6);
-		if(glfwGetKey(window, GLFW_KEY_ESCAPE) == true)
+		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == true)
 			glfwSetWindowShouldClose(window, GL_TRUE);
 
 		glfwSwapBuffers(window);
