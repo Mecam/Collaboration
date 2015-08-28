@@ -56,7 +56,7 @@ void main()
 
 	VertexObject vao(vertices, texPos);
 	ShaderProgram program(basicVertex, basicFragment);
-	Texture tex("Tex/doge.png");
+	Texture tex("Tex/Coffee_Not_Found.png");
 
 	while (!glfwWindowShouldClose(window))
 	{
