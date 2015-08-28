@@ -21,8 +21,6 @@ vector<GLfloat> vertices = {
 	 
 };
 
- 
-
 vector<GLfloat> texPos = {
 
 	0.0f, 0.0f,//Top Left
@@ -36,6 +34,7 @@ vector<GLuint> indices = {
 	0, 1, 2,  // First Triangle
 	0, 3, 1   // Second Triangle
 };
+
 void main()
 {
 	glfwInit();
