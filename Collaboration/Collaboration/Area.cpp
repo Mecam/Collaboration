@@ -73,7 +73,7 @@ void Area::UnloadGameContent()
 
 void Area::UpdateArea()
 {
-
+	cout << "Delta Time: " << _DeltaTime << " Millisecconds\n";
 }
 
 void Area::RenderArea()

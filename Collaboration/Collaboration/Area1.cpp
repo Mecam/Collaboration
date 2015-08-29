@@ -11,10 +11,12 @@ void Area::Area1Loop()
 	cout << "::SYSTEM:: " << "Entering Area1 Loop\n";
 	while (!glfwWindowShouldClose(_Window))
 	{
+		_Time1 = clock();
 		glfwPollEvents();
 
 		UpdateArea();
 		RenderArea();
+		_DeltaTime = static_cast<double>((static_cast<double>(clock()) - _Time1) / CLOCKS_PER_SEC);
 	}
 
 	UnloadArea1Content();

@@ -7,6 +7,9 @@
 class Area : public Global
 {
 private:
+	/*Data*/
+	double _DeltaTime = 0.0;
+	double _Time1 = 0.0;
 
 protected:
 
@@ -19,6 +22,7 @@ protected:
 	Texture* _DogeTexture;
 	Texture* _CircuitTexture;
 	int _Mode = 1;
+
 	/*Area Content*/
 
 public:

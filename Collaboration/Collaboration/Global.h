@@ -16,6 +16,8 @@
 #include <list>
 #include <algorithm>
 #include <fstream>
+#include <time.h>
+#include <Windows.h>
 
 using namespace std;
 
