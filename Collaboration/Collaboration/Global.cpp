@@ -27,7 +27,8 @@ void Global::InitProgram()
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	new Area->LoadGameContent();
+	Area *AreaObject = new Area;
+	AreaObject->LoadGameContent();
 }
 
 void Global::ShutdownProgram()

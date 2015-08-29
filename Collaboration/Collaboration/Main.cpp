@@ -6,8 +6,8 @@
 
 void main()
 {
-	//Global ProgramObject;
-	//ProgramObject.InitProgram();
-	new Global->InitProgram();
+	Global ProgramObject;
+	ProgramObject.InitProgram();
+	//new Global->InitProgram();
 }
 
