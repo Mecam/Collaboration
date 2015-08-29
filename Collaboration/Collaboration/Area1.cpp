@@ -15,7 +15,7 @@ void Area::Area1Loop()
 		_VertexObject->use();
 		_ShaderProgram->use();
 		if (glfwGetKey(_Window, GLFW_KEY_D) == true)
-			dogepointer->use();
+			_DogeTexture->use();
 		else
 		     _Texture->use();
 		glDrawArrays(GL_TRIANGLES, 0, 6);

@@ -13,10 +13,10 @@ protected:
 	/*Game Content*/
 	vector<GLfloat> _Vertices;
 	vector<GLfloat> _TexPos;
-	VertexObject *_VertexObject;
-	ShaderProgram *_ShaderProgram;
-	Texture *_Texture;
-	Texture* dogepointer;
+	VertexObject* _VertexObject;
+	ShaderProgram* _ShaderProgram;
+	Texture* _Texture;
+	Texture* _DogeTexture;
 
 	/*Area Content*/
 
