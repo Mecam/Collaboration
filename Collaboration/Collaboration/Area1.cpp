@@ -7,11 +7,16 @@
 void Area::Area1Loop()
 {
 	LoadArea1Content();
-	while (true)///FIX
+	while (!glfwWindowShouldClose(window))
 	{
 
-	}
+		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == true)
+			glfwSetWindowShouldClose(window, GL_TRUE);
 
+
+		 
+
+	}
 	UnloadArea1Content();
 	UnloadGameContent();
 	ShutdownProgram();
