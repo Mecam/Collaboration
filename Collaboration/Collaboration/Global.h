@@ -37,8 +37,8 @@ protected:
 	const int _WindowHeight = 512;
 
 public:
-	static void InitProgram();
-	static void ShutdownProgram();
+	void InitProgram();
+	void ShutdownProgram();
 
 };
 

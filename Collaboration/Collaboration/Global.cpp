@@ -15,7 +15,7 @@ void Global::InitProgram()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow* window = glfwCreateWindow(WindowWidth, WindowHeight, "Game", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(_WindowWidth, _WindowHeight, "Game", nullptr, nullptr);
 
 	if (!window)
 	{
@@ -27,7 +27,7 @@ void Global::InitProgram()
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	Area::LoadGameContent();
+	new Area->LoadGameContent();
 }
 
 void Global::ShutdownProgram()

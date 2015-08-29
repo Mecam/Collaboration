@@ -14,20 +14,20 @@ protected:
 
 public:
 
-	static void LoadGameContent();
-	static void UnloadGameContent();
+	void LoadGameContent();
+	void UnloadGameContent();
 
 	/*Level Functions*/
-	static void Area1Loop();
+	void Area1Loop();
 
-	static void LoadArea1Content();
+	void LoadArea1Content();
 	
-	static void UnloadArea1Content();
+	void UnloadArea1Content();
 
 
-	static void UpdateArea();
+	void UpdateArea();
 
-	static void RenderArea();
+	void RenderArea();
 };
 
 #endif
