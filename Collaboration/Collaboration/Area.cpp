@@ -41,7 +41,7 @@ void Area::LoadGameContent()
 
 	Texture Tex("Tex/Coffee_Not_Found.png");
 	_Texture = &Tex;
-	Texture doge("Tex/doge.png");
+	Texture doge("Tex/Circuit.jpg");
 	_DogeTexture = &doge;
 
 	Area1Loop();
