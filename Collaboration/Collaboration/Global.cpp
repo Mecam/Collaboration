@@ -3,6 +3,7 @@
 #define GLEW_STATIC
 
 #include "Global.h"
+#include "Area.h"
 
 void Global::InitProgram()
 {
@@ -25,9 +26,11 @@ void Global::InitProgram()
 
 	glewExperimental = GL_TRUE;
 	glewInit();
+
+	Area::LoadGameContent();
 }
 
 void Global::ShutdownProgram()
 {
-
+	exit(0);
 }

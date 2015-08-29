@@ -26,8 +26,8 @@ private:
 protected:
 
 public:
-	void InitProgram();
-	void ShutdownProgram();
+	static void InitProgram();
+	static void ShutdownProgram();
 
 };
 

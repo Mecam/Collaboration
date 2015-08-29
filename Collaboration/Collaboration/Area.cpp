@@ -4,17 +4,22 @@
 
 #include "Area.h"
 
-void Area::LoadLevelsContent()
+void Area::LoadGameContent()
+{
+	Area1Loop();
+}
+
+void Area::UnloadGameContent()
 {
 
 }
 
-void Area::UnloadLevelsContent()
+void Area::UpdateArea()
 {
 
 }
 
-void Area::UpdateLevel()
+void Area::RenderArea()
 {
 
 }

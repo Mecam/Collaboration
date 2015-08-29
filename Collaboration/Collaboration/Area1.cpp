@@ -4,17 +4,25 @@
 
 #include "Area.h"
 
-void Area::Level1Loop()
+void Area::Area1Loop()
+{
+	LoadArea1Content();
+	while (true)///FIX
+	{
+
+	}
+
+	UnloadArea1Content();
+	UnloadGameContent();
+	ShutdownProgram();
+}
+
+void Area::LoadArea1Content()
 {
 
 }
 
-void Area::LoadLevel1Content()
-{
-
-}
-
-void Area::UnloadLevel1Content()
+void Area::UnloadArea1Content()
 {
 
 }

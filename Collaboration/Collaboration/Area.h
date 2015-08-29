@@ -10,19 +10,24 @@ private:
 
 protected:
 
-	void LoadLevelsContent();
-	void UnloadLevelsContent();
+	/*Data*/
+
+public:
+
+	static void LoadGameContent();
+	static void UnloadGameContent();
 
 	/*Level Functions*/
-	void Level1Loop();
+	static void Area1Loop();
 
-	void LoadLevel1Content();
-
-	void UpdateLevel();
+	static void LoadArea1Content();
 	
-	void UnloadLevel1Content();
+	static void UnloadArea1Content();
 
-	/*Data*/
+
+	static void UpdateArea();
+
+	static void RenderArea();
 };
 
 #endif

@@ -6,7 +6,6 @@
 
 void main()
 {
-	Global GlobalObject;
-	GlobalObject.InitProgram();
+	Global::InitProgram();
 }
 
