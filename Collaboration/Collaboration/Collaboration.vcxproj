@@ -70,14 +70,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Michael Luczynski\Source\Repos\Collaboration\Collaboration\Collaboration\Libraries\GLlibs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\Conner\Source\Repos\Collaboration\Collaboration\Collaboration\Libraries\GLlibs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Michael Luczynski\Source\Repos\Collaboration\Collaboration\Collaboration\Libraries\GLlibs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Conner\Source\Repos\Collaboration\Collaboration\Collaboration\Libraries\GLlibs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -123,12 +123,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Area1.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Area.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Tex\Coffee_Not_Found.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="Area.h" />
     <ClInclude Include="ShaderDat.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Utils.h" />

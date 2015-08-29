@@ -21,7 +21,7 @@ protected:
 	void UpdateLevel();
 	
 	void UnloadLevel1Content();
-	//sfdasdfasdfasdfasdfasdfasdfasdf
+
 	/*Data*/
 };
 
