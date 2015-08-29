@@ -15,7 +15,7 @@ void Global::InitProgram()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow* window = glfwCreateWindow(1024, 512, "Game", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(WindowWidth, WindowHeight, "Game", nullptr, nullptr);
 
 	if (!window)
 	{

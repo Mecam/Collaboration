@@ -19,11 +19,22 @@
 
 using namespace std;
 
+struct XMDouble3
+{
+	double X;
+	double Y;
+	double Z;
+};
+
 class Global
 {
 private:
 
 protected:
+
+	/*Data*/
+	const int WindowWidth = 1024;
+	const int WindowHeight = 512;
 
 public:
 	static void InitProgram();
