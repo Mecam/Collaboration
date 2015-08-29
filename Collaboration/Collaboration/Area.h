@@ -17,7 +17,8 @@ protected:
 	ShaderProgram* _ShaderProgram;
 	Texture* _Texture;
 	Texture* _DogeTexture;
-
+	Texture* circuitpointer;
+	int mode = 1;
 	/*Area Content*/
 
 public:

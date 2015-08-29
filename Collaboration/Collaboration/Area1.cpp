@@ -14,10 +14,21 @@ void Area::Area1Loop()
 
 		_VertexObject->use();
 		_ShaderProgram->use();
-		if (glfwGetKey(_Window, GLFW_KEY_D) == true)
+		if (mode == 1)
+		{
 			_DogeTexture->use();
-		else
-		     _Texture->use();
+			mode = 2;
+		}
+		else if (mode == 2)
+		{
+			_Texture->use();
+			mode = 3;
+		}
+		else if (mode == 3)
+		{
+			circuitpointer->use();
+			mode = 1;
+		}
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 		if (glfwGetKey(_Window, GLFW_KEY_ESCAPE) == true)
 		{

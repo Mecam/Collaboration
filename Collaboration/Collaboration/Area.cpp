@@ -41,9 +41,10 @@ void Area::LoadGameContent()
 
 	Texture Tex("Tex/Coffee_Not_Found.png");
 	_Texture = &Tex;
-	Texture doge("Tex/Circuit.jpg");
+	Texture doge("Tex/doge.png");
 	_DogeTexture = &doge;
-
+	Texture circuit("Tex/Ciruit.jpeg");
+		circuitpointer = &circuit;
 	Area1Loop();
 }
 
