@@ -32,11 +32,16 @@ private:
 
 protected:
 
+	/*OpenGL*/
+	GLFWwindow* _Window;
+
 	/*Data*/
 	const int _WindowWidth = 1024;
 	const int _WindowHeight = 512;
 
 public:
+	//Global();
+
 	void InitProgram();
 	void ShutdownProgram();
 

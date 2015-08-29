@@ -4,15 +4,23 @@
 
 #include "Global.h"
 
-class Area : Global
+class Area : public Global
 {
 private:
 
 protected:
 
-	/*Data*/
+	/*Game Content*/
+	vector<GLfloat> _Vertices;
+	vector<GLfloat> _TexPos;
+	VertexObject *_VertexObject;
+	ShaderProgram *_ShaderProgram;
+	Texture *_Texture;
+
+	/*Area Content*/
 
 public:
+	//Area();
 
 	void LoadGameContent();
 	void UnloadGameContent();

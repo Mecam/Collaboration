@@ -5,6 +5,11 @@
 #include "Global.h"
 #include "Area.h"
 
+/*Global::Global()
+{
+
+}*/
+
 void Global::InitProgram()
 {
 	glfwInit();
@@ -15,20 +20,20 @@ void Global::InitProgram()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow* window = glfwCreateWindow(_WindowWidth, _WindowHeight, "Game", nullptr, nullptr);
+	_Window = glfwCreateWindow(_WindowWidth, _WindowHeight, "Game", nullptr, nullptr);
 
-	if (!window)
+	if (!_Window)
 	{
 		glfwTerminate();
 	}
 
-	glfwMakeContextCurrent(window);
+	glfwMakeContextCurrent(_Window);
 
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	Area *AreaObject = new Area;
-	AreaObject->LoadGameContent();
+	//Area *AreaObject = new Area;
+	//AreaObject->LoadGameContent();
 }
 
 void Global::ShutdownProgram()

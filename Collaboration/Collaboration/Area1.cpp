@@ -7,15 +7,21 @@
 void Area::Area1Loop()
 {
 	LoadArea1Content();
-	while (!glfwWindowShouldClose(window))
+	while (!glfwWindowShouldClose(_Window))
 	{
+		glfwPollEvents();
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == true)
-			glfwSetWindowShouldClose(window, GL_TRUE);
+		_VertexObject->use();
+		_ShaderProgram->use();
+		_Texture->use();
+		glDrawArrays(GL_TRIANGLES, 0, 6);
+		if (glfwGetKey(_Window, GLFW_KEY_ESCAPE) == true)
+		{
+			glfwSetWindowShouldClose(_Window, GL_TRUE);
+		}
 
-
-		 
-
+		glfwSwapBuffers(_Window);
 	}
 	UnloadArea1Content();
 	UnloadGameContent();
