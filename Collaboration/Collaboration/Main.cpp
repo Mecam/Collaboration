@@ -9,3 +9,4 @@ void main()
 	Global GlobalObject;
 	GlobalObject.InitProgram();
 }
+
