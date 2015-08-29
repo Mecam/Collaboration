@@ -12,6 +12,8 @@
 
 void Global::InitProgram()
 {
+	cout << "::SYSTEM:: " << "Initializing Program\n";
+
 	glfwInit();
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -38,5 +40,6 @@ void Global::InitProgram()
 
 void Global::ShutdownProgram()
 {
+	cout << "::SYSTEM:: " << "Shutting Down\n";
 	exit(0);
 }

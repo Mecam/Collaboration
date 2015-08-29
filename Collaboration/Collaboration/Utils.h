@@ -22,14 +22,14 @@ public:
 		glGenBuffers(1, &vbo);
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		printf("%u\n", vbo);
+		cout << "VBO:" << vbo << "\n";
 
 		data.insert(data.end(), verts.begin(), verts.end());
 		data.insert(data.end(), tex.begin(), tex.end());
 		data.insert(data.end(), norms.begin(), norms.end());
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STATIC_DRAW);
 
-		cout << verts.size() * sizeof(GLfloat) << endl;
+		cout << "VertexData Size:" << verts.size() * sizeof(GLfloat) << "\n";
 
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
@@ -50,13 +50,13 @@ public:
 		glGenBuffers(1, &vbo);
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		printf("%u\n", vbo);
+		cout << "VBO:" << vbo << "\n";
 
 		data.insert(data.end(), verts.begin(), verts.end());
 		data.insert(data.end(), tex.begin(), tex.end());
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STATIC_DRAW);
 
-		cout << verts.size() / sizeof(GLfloat) << endl;
+		cout << "VertexData Size:" << verts.size() / sizeof(GLfloat) << "\n";
 
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
@@ -78,7 +78,7 @@ public:
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-		printf("%u\n", vbo);
+		cout << "VBO:" << vbo << "\n";
 		
 		
 		data.insert(data.end(), verts.begin(), verts.end());
@@ -86,7 +86,7 @@ public:
 	 
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STATIC_DRAW);
 
-		cout << verts.size() * sizeof(GLfloat) << endl;
+		cout << "VertexData Size:" << verts.size() * sizeof(GLfloat) << "\n";
 		inds = indices;
 		
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, inds.size() * sizeof(GLuint), &inds[0], GL_STATIC_DRAW);

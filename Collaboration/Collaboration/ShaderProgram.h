@@ -51,10 +51,10 @@ private:
 	{
 		GLint status;
 		glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-		printf("%u\n", status);
+		std::cout << "Status:" << status << "\n";
 		char buffer[512];
 		glGetShaderInfoLog(shader, 512, NULL, buffer);
-		std::cout << buffer << std::endl;
+		std::cout << "Buffer:" << buffer << "\n";
 	}
 };
 
