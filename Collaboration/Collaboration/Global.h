@@ -33,8 +33,8 @@ private:
 protected:
 
 	/*Data*/
-	const int WindowWidth = 1024;
-	const int WindowHeight = 512;
+	const int _WindowWidth = 1024;
+	const int _WindowHeight = 512;
 
 public:
 	static void InitProgram();
