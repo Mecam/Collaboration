@@ -45,7 +45,7 @@ void Area::LoadGameContent()
 	_Texture = &Tex;
 	Texture doge("Tex/doge.png");
 	_DogeTexture = &doge;
-	Texture circuit("Tex/Ciruit.jpeg");
+	Texture circuit("Tex/Circuit.jpg");
 	_CircuitTexture = &circuit;
 
 	Area1Loop();

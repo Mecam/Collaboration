@@ -31,6 +31,7 @@ struct XMDouble3
 class Global
 {
 private:
+	/*Data*/
 
 protected:
 
@@ -40,6 +41,7 @@ protected:
 	/*Data*/
 	const int _WindowWidth = 1024;
 	const int _WindowHeight = 512;
+	double _MaximumUpdateDelay = 100.0;
 
 public:
 	//Global();

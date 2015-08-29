@@ -16,7 +16,12 @@ void Area::Area1Loop()
 
 		UpdateArea();
 		RenderArea();
-		_DeltaTime = static_cast<double>((static_cast<double>(clock()) - _Time1) / CLOCKS_PER_SEC);
+
+		_DeltaTime = static_cast<double>((static_cast<double>(clock()) - _Time1) / CLOCKS_PER_SEC) * 1000;
+		if (_DeltaTime > _MaximumUpdateDelay)
+		{
+			_DeltaTime = _MaximumUpdateDelay;
+		}
 	}
 
 	UnloadArea1Content();
