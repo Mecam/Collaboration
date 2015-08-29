@@ -18,7 +18,7 @@ protected:
 	Texture* _Texture;
 	Texture* _DogeTexture;
 	Texture* _CircuitTexture;
-	int mode = 1;
+	int _Mode = 1;
 	/*Area Content*/
 
 public:

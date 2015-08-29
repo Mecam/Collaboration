@@ -82,20 +82,20 @@ void Area::RenderArea()
 
 	_VertexObject->use();
 	_ShaderProgram->use();
-	if (mode == 1)
+	if (_Mode == 1)
 	{
 		_DogeTexture->use();
-		mode = 2;
+		_Mode = 2;
 	}
-	else if (mode == 2)
+	else if (_Mode == 2)
 	{
 		_Texture->use();
-		mode = 3;
+		_Mode = 3;
 	}
-	else if (mode == 3)
+	else if (_Mode == 3)
 	{
 		_CircuitTexture->use();
-		mode = 1;
+		_Mode = 1;
 	}
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	if (glfwGetKey(_Window, GLFW_KEY_ESCAPE) == true)
