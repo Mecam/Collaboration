@@ -26,7 +26,7 @@ void Area::Area1Loop()
 		}
 		else if (mode == 3)
 		{
-			circuitpointer->use();
+			_CircuitTexture->use();
 			mode = 1;
 		}
 		glDrawArrays(GL_TRIANGLES, 0, 6);

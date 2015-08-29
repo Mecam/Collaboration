@@ -129,6 +129,7 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Tex\Circuit.jpg" />
     <Image Include="Tex\Coffee_Not_Found.png" />
   </ItemGroup>
   <ItemGroup>
