@@ -40,7 +40,9 @@ void Area::LoadGameContent()
 	_ShaderProgram = &Shader;
 
 	Texture Tex("Tex/Coffee_Not_Found.png");
+	Texture doge("Tex/doge.png");
 	_Texture = &Tex;
+	dogepointer = &doge;
 
 	Area1Loop();
 }

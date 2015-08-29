@@ -16,6 +16,7 @@ protected:
 	VertexObject *_VertexObject;
 	ShaderProgram *_ShaderProgram;
 	Texture *_Texture;
+	Texture* dogepointer;
 
 	/*Area Content*/
 
