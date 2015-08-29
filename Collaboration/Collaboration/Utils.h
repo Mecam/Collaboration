@@ -1,7 +1,9 @@
-#pragma once
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <SOIL.h>
+
+#ifndef _Utils_
+#define _Utils_
+#include "Libraries\GLlibs\GL\glew.h"
+#include "Libraries\GLlibs\GLFW\glfw3.h"
+#include "Libraries\GLlibs\SOIL.h"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -196,11 +198,14 @@ public:
 		glDeleteFramebuffers(1, &fBuf);
 	}
 };
-void resetV()
+static void resetV()
 {
 	glBindVertexArray(0);
 }
-void resetF()
+static void resetF()
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
+
+#endif
+

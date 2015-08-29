@@ -1,8 +1,10 @@
-#pragma once
+
+#ifndef _SHADER_PROGRAM_
+#define _SHADER_PROGRAM_
 #include <string>
 #include <fstream>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include "Libraries\GLlibs\GL\glew.h"
+#include "Libraries\GLlibs\GLFW\glfw3.h"
 #include <iostream>
 class ShaderProgram
 {
@@ -55,4 +57,6 @@ private:
 		std::cout << buffer << std::endl;
 	}
 };
+
+#endif
 
