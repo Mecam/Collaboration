@@ -2,7 +2,7 @@
 
 #define GLEW_STATIC
 
-#include "Area.h"
+#include "Program.h"
 
 /*Area::Area() :
 	Global()
@@ -10,7 +10,42 @@
 
 }*/
 
-void Area::LoadGameContent()
+void Program::InitProgram()
+{
+	cout << "::SYSTEM:: " << "Initializing Program\n";
+
+	glfwInit();
+
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+	_Window = glfwCreateWindow(_WindowWidth, _WindowHeight, "Game", nullptr, nullptr);
+
+	if (!_Window)
+	{
+		glfwTerminate();
+	}
+
+	glfwMakeContextCurrent(_Window);
+
+	glewExperimental = GL_TRUE;
+	glewInit();
+
+	//LoadGameContent();
+	//Area *AreaObject = new Area;
+	//AreaObject->LoadGameContent();
+}
+
+void Program::ShutdownProgram()
+{
+	cout << "::SYSTEM:: " << "Shutting Down\n";
+	exit(0);
+}
+
+void Program::LoadGameContent()
 {
 	cout << "::SYSTEM:: " << "Loading Game Content\n";
 
@@ -51,7 +86,7 @@ void Area::LoadGameContent()
 	Area1Loop();
 }
 
-void Area::UnloadGameContent()
+void Program::UnloadGameContent()
 {
 	cout << "::SYSTEM:: " << "Unloading Game Content\n";
 
@@ -71,12 +106,12 @@ void Area::UnloadGameContent()
 	delete _CircuitTexture;
 }
 
-void Area::UpdateArea()
+void Program::UpdateArea()
 {
 	cout << "Delta Time: " << _DeltaTime << " Millisecconds\n";
 }
 
-void Area::RenderArea()
+void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 

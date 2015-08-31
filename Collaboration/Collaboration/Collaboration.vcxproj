@@ -125,7 +125,7 @@
   <ItemGroup>
     <ClCompile Include="Area1.cpp" />
     <ClCompile Include="Global.cpp" />
-    <ClCompile Include="Area.cpp" />
+    <ClCompile Include="Program.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -134,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h" />
-    <ClInclude Include="Area.h" />
+    <ClInclude Include="Program.h" />
     <ClInclude Include="ShaderDat.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Utils.h" />

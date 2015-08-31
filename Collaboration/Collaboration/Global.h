@@ -21,34 +21,50 @@
 
 using namespace std;
 
-struct XMDouble3
+struct Vector3
 {
+	Vector3(double x, double y, double z) : X(x), Y(y), Z(z) {}
+	Vector3() {}
+
 	double X;
 	double Y;
 	double Z;
-};
 
-class Global
-{
-private:
-	/*Data*/
 
-protected:
+	static Vector3 Cross(Vector3 Vector1, Vector3 Vector2)
+	{
+		return
+		{
+			Vector1.Y * Vector2.Z - Vector1.Z * Vector2.Y,
+			Vector1.Z * Vector2.X - Vector1.X * Vector2.Z,
+			Vector1.X * Vector2.Y - Vector1.Y * Vector2.X
+		};
+	}
+	static double Dot(Vector3 Vector1, Vector3 Vector2)
+	{
+		return
+		{
+			Vector1.X * Vector2.X + Vector1.Y * Vector2.Y + Vector1.Z * Vector2.Z
+		};
+	}
+	static Vector3 Invert(Vector3 Vector1)
+	{
+		return
+		{
+			-Vector1.X,
+			-Vector1.Y,
+			-Vector1.Z
+		};
+	}
 
-	/*OpenGL*/
-	GLFWwindow* _Window;
-
-	/*Data*/
-	const int _WindowWidth = 1024;
-	const int _WindowHeight = 512;
-	double _MaximumUpdateDelay = 100.0;
-
-public:
-	//Global();
-
-	void InitProgram();
-	void ShutdownProgram();
-
+	Vector3 operator+(Vector3 Other)
+	{
+		return{ X + Other.X, Y + Other.Y, Z + Other.Z };
+	}
+	Vector3 operator-(Vector3 Other)
+	{
+		return{ X - Other.X, Y - Other.Y, Z - Other.Z };
+	}
 };
 
 #endif

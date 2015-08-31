@@ -1,10 +1,10 @@
 
-#ifndef _AREA_
-#define _AREA_
+#ifndef _PROGRAM_
+#define _PROGRAM_
 
 #include "Global.h"
 
-class Area : public Global
+class Program
 {
 private:
 	/*Data*/
@@ -12,6 +12,13 @@ private:
 	double _Time1 = 0.0;
 
 protected:
+	/*OpenGL*/
+	GLFWwindow* _Window;
+
+	/*Data*/
+	const int _WindowWidth = 1024;
+	const int _WindowHeight = 512;
+	double _MaximumUpdateDelay = 100.0;
 
 	/*Game Content*/
 	vector<GLfloat> _Vertices;
@@ -26,7 +33,9 @@ protected:
 	/*Area Content*/
 
 public:
-	//Area();
+	/*Setup*/
+	void InitProgram();
+	void ShutdownProgram();
 
 	void LoadGameContent();
 	void UnloadGameContent();

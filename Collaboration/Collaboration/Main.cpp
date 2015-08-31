@@ -2,15 +2,12 @@
 
 #define GLEW_STATIC
 
-//#include "Global.h"
-#include "Area.h"
+#include "Global.h"
+#include "Program.h"
 
 void main()
 {
-	//Global ProgramObject;
-	//ProgramObject.InitProgram();
-
-	Area ProgramObject;
+	Program ProgramObject;
 	ProgramObject.InitProgram();
 	ProgramObject.LoadGameContent();
 }
