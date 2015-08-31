@@ -8,8 +8,8 @@ class Program
 {
 private:
 	/*Data*/
-	double _DeltaTime = 0.0;
-	double _Time1 = 0.0;
+	long double _DeltaTime;
+	chrono::time_point<chrono::steady_clock> _Time1;
 
 protected:
 	/*OpenGL*/

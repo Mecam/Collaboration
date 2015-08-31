@@ -11,13 +11,13 @@ void Program::Area1Loop()
 	cout << "::SYSTEM:: " << "Entering Area1 Loop\n";
 	while (!glfwWindowShouldClose(_Window))
 	{
-		_Time1 = clock();
+		_Time1 = chrono::high_resolution_clock::now();
 		glfwPollEvents();
 
 		UpdateArea();
 		RenderArea();
 
-		_DeltaTime = static_cast<double>((static_cast<double>(clock()) - _Time1) / CLOCKS_PER_SEC) * 1000;
+		_DeltaTime = chrono::duration_cast<chrono::microseconds>(chrono::high_resolution_clock::now() - _Time1).count() / 1000.0;
 		if (_DeltaTime > _MaximumUpdateDelay)
 		{
 			_DeltaTime = _MaximumUpdateDelay;
