@@ -2,9 +2,9 @@
 
 #define GLEW_STATIC
 
-#include "Program.h"
+#include "GLhandler.h"
 
-void Program::Area1Loop()
+void GLhandler::Area1Loop()
 {
 	LoadArea1Content();
 
@@ -26,15 +26,15 @@ void Program::Area1Loop()
 
 	UnloadArea1Content();
 	UnloadGameContent();
-	ShutdownProgram();
+	Shutdown();
 }
 
-void Program::LoadArea1Content()
+void GLhandler::LoadArea1Content()
 {
 	cout << "::SYSTEM:: " << "Loading Area1 Content\n";
 }
 
-void Program::UnloadArea1Content()
+void GLhandler::UnloadArea1Content()
 {
 	cout << "::SYSTEM:: " << "Unloading Area1 Content\n";
 }
