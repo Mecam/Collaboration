@@ -22,6 +22,9 @@
 
 using namespace std;
 
+#define PI 3.1415926535897932385
+#define TAU 6.2831853071795864769
+
 struct Vector3
 {
 	Vector3(double x, double y, double z) : X(x), Y(y), Z(z) {}
