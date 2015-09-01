@@ -16,6 +16,7 @@ public:
 	int i;
 	vector<GLfloat> data;
 	vector<GLuint> inds;
+	VertexObject() {}
 	VertexObject(vector<GLfloat> verts, vector<GLfloat> tex, vector<GLfloat> norms)
 	{
 		glGenVertexArrays(1, &vao);
@@ -37,6 +38,32 @@ public:
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * verts.size()));
 		glEnableVertexAttribArray(2);
 		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * (verts.size() + tex.size())));
+
+
+		glBindVertexArray(0);
+
+
+
+	}
+	void setup(vector<GLfloat> verts, vector<GLfloat> tex)
+	{
+		glGenVertexArrays(1, &vao);
+		glGenBuffers(1, &vbo);
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+		cout << "VBO:" << vbo << "\n";
+
+		data.insert(data.end(), verts.begin(), verts.end());
+		data.insert(data.end(), tex.begin(), tex.end());
+		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STATIC_DRAW);
+
+		cout << "VertexData Size:" << verts.size() / sizeof(GLfloat) << "\n";
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+		glEnableVertexAttribArray(1);
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * verts.size()));
+
 
 
 		glBindVertexArray(0);
@@ -100,10 +127,7 @@ public:
 
 		glBindVertexArray(0);
 	}
-	void ConfBuf(vector<GLfloat> verts, vector<GLfloat> texture, vector<GLfloat> norms)
-	{
-		//TODO
-	}
+	 
 	void use()
 	{
 		glBindVertexArray(vao);
@@ -121,7 +145,24 @@ class Texture
 public:
 
 	GLuint tex;
+	Texture() {}
 	Texture(char* source)
+	{
+
+		glGenTextures(1, &tex);
+		glBindTexture(GL_TEXTURE_2D, tex);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		image = SOIL_load_image(source, &width, &height, 0, SOIL_LOAD_RGB);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		glGenerateMipmap(GL_TEXTURE_2D);
+		SOIL_free_image_data(image);
+
+	}
+	void setup(char* source)
 	{
 
 		glGenTextures(1, &tex);

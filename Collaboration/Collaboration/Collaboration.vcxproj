@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="Global.h" />
     <ClInclude Include="GLhandler.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="ShaderDat.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Utils.h" />

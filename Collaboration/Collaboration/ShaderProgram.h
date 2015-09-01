@@ -15,6 +15,25 @@ private:
 public:
 	GLuint prog;
 	GLuint gShader;
+	ShaderProgram() {}
+	void setup(char* vsource, char* fsource)
+	{
+		prog = glCreateProgram();
+
+		gShader = glCreateShader(GL_VERTEX_SHADER);
+		glShaderSource(gShader, 1, &vsource, NULL);
+		glCompileShader(gShader);
+		debug(gShader);
+		glAttachShader(prog, gShader);
+
+		gShader = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(gShader, 1, &fsource, NULL);
+		glCompileShader(gShader);
+		debug(gShader);
+		glAttachShader(prog, gShader);
+
+		glLinkProgram(prog);
+	}
 	ShaderProgram(char* vsource, char* fsource)
 	{
 		prog = glCreateProgram();
