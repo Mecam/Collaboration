@@ -4,7 +4,7 @@
 
 #include "Program.h"
 
-void Program::Init()
+void Program::InitProgram()
 {
 	cout << "::SYSTEM:: " << "Initializing Program\n";
 
@@ -33,7 +33,7 @@ void Program::Init()
 	//AreaObject->LoadGameContent();
 }
 
-void Program::Shutdown()
+void Program::ShutdownProgram()
 {
 	cout << "::SYSTEM:: " << "Shutting Down\n";
 	exit(0);

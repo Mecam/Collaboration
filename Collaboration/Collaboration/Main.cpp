@@ -7,7 +7,7 @@
 void main()
 {
 	Program ProgramObject;
-	ProgramObject.Init();
+	ProgramObject.InitProgram();
 	ProgramObject.LoadGameContent();
 }
 

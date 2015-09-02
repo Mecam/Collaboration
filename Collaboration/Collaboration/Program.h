@@ -34,8 +34,8 @@ protected:
 
 public:
 	/*Setup*/
-	void Init();
-	void Shutdown();
+	void InitProgram();
+	void ShutdownProgram();
 
 	void LoadGameContent();
 	void UnloadGameContent();

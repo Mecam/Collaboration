@@ -26,7 +26,7 @@ void Program::Area1Loop()
 
 	UnloadArea1Content();
 	UnloadGameContent();
-	Shutdown();
+	ShutdownProgram();
 }
 
 void Program::LoadArea1Content()
