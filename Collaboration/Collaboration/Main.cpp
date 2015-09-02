@@ -4,7 +4,7 @@
 
 #include "Global.h"
 #include "GLhandler.h"
-
+ 
 void main()
 {
 	GLhandler handler;
