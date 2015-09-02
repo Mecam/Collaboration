@@ -2,7 +2,7 @@
 
 #define GLEW_STATIC
 
-#include "GLhandler.h"
+#include "Program.h"
 
 /*Area::Area() :
 	Global()
@@ -10,7 +10,7 @@
 
 }*/
 
-void GLhandler::Init()
+void Program::Init()
 {
 	cout << "::SYSTEM:: " << "Initializing Program\n";
 
@@ -39,13 +39,13 @@ void GLhandler::Init()
 	//AreaObject->LoadGameContent();
 }
 
-void GLhandler::Shutdown()
+void Program::Shutdown()
 {
 	cout << "::SYSTEM:: " << "Shutting Down\n";
 	exit(0);
 }
 
-void GLhandler::LoadGameContent()
+void Program::LoadGameContent()
 {
 	cout << "::SYSTEM:: " << "Loading Game Content\n";
 
@@ -86,7 +86,7 @@ void GLhandler::LoadGameContent()
 	Area1Loop();
 }
 
-void GLhandler::UnloadGameContent()
+void Program::UnloadGameContent()
 {
 	cout << "::SYSTEM:: " << "Unloading Game Content\n";
 
@@ -106,12 +106,12 @@ void GLhandler::UnloadGameContent()
 	delete _CircuitTexture;
 }
 
-void GLhandler::UpdateArea()
+void Program::UpdateArea()
 {
 	cout << "Delta Time: " << _DeltaTime << " Millisecconds\n";
 }
 
-void GLhandler::RenderArea()
+void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 

@@ -38,10 +38,10 @@
     <ClInclude Include="Global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GLhandler.h">
+    <ClInclude Include="Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
+    <ClInclude Include="Program.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,7 +4,7 @@
 
 #include "Global.h"
 
-class GLhandler
+class Program
 {
 private:
 	/*Data*/

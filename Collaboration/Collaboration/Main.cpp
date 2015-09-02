@@ -3,12 +3,12 @@
 #define GLEW_STATIC
 
 #include "Global.h"
-#include "GLhandler.h"
+#include "Program.h"
  
 void main()
 {
-	GLhandler handler;
-	handler.Init();
-	handler.LoadGameContent();
+	Program ProgramObject;
+	ProgramObject.Init();
+	ProgramObject.LoadGameContent();
 }
 
