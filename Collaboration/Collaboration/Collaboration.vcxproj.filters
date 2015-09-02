@@ -52,7 +52,7 @@
     <ClCompile Include="Area1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GLhandler.cpp">
+    <ClCompile Include="Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

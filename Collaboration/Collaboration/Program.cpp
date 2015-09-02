@@ -4,12 +4,6 @@
 
 #include "Program.h"
 
-/*Area::Area() :
-	Global()
-{
-
-}*/
-
 void Program::Init()
 {
 	cout << "::SYSTEM:: " << "Initializing Program\n";

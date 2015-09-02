@@ -124,7 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Area1.cpp" />
-    <ClCompile Include="GLhandler.cpp" />
+    <ClCompile Include="Program.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
