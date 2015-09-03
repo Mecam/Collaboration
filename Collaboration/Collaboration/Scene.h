@@ -3,6 +3,34 @@
 #include "ShaderDat.h"
 #include "ShaderProgram.h"
 
+
+
+
+
+
+
+
+
+
+/*
+######################################################################
+#                                                                    #
+#  I don't know why we need this file but I'll leave it in for now.  #
+#                                                                    #
+######################################################################
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 class Scene 
 {
 	public:
