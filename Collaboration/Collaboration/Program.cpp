@@ -3,7 +3,7 @@
 #define GLEW_STATIC
 
 #include "Program.h"
-
+Vector3 tehvector(0.5f, 0.5f, 0.5f);
 void Program::InitProgram()
 {
 	cout << "::SYSTEM:: " << "Initializing Program\n";
@@ -27,7 +27,7 @@ void Program::InitProgram()
 
 	glewExperimental = GL_TRUE;
 	glewInit();
-
+	glEnable(GL_PROGRAM_POINT_SIZE);
 	//LoadGameContent();
 	//Area *AreaObject = new Area;
 	//AreaObject->LoadGameContent();
@@ -76,7 +76,8 @@ void Program::LoadGameContent()
 	_DogeTexture = &doge;
 	Texture circuit("Tex/Circuit.jpg");
 	_CircuitTexture = &circuit;
-
+	
+	vectors.setup(tehvector);
 	Area1Loop();
 }
 
@@ -108,7 +109,8 @@ void Program::UpdateArea()
 void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
+	vectors.draw(100.0f);
+	/*
 	_VertexObject->use();
 	_ShaderProgram->use();
 	if (_Mode == 1)
@@ -131,7 +133,7 @@ void Program::RenderArea()
 	{
 		glfwSetWindowShouldClose(_Window, GL_TRUE);
 	}
-
+	*/
 	glfwSwapBuffers(_Window);
 }
 

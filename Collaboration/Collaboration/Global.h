@@ -70,6 +70,52 @@ struct Vector3
 		return{ X - Other.X, Y - Other.Y, Z - Other.Z };
 	}
 };
+class VectorTool : public VertexObject
+{
+public:
+	Vector3* csvspointer;
+	ShaderProgram vectorshaders;
+	void setup(Vector3 &csvs)
+	{
+		csvspointer = &csvs;
+
+		data.push_back(csvs.X);
+		data.push_back(csvs.Y);
+		data.push_back(csvs.Z);
+
+		vectorshaders.setup(Vectorv, Vectorf);
+
+		glGenVertexArrays(1, &vao);
+		glGenBuffers(1, &vbo);
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_DYNAMIC_DRAW);
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+
+		glBindVertexArray(0);
+
+	}
+	void draw(GLfloat pointsize)
+	{
+		data.clear();
+		data.push_back(csvspointer->X);
+		data.push_back(csvspointer->Y);
+		data.push_back(csvspointer->Z);
+
+		glBindVertexArray(vao);
+		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_DYNAMIC_DRAW);
+
+		vectorshaders.use();
+		glUniform1f(glGetUniformLocation(vectorshaders.prog, "pSize"), pointsize);
+		glDrawArrays(GL_POINTS, 0, 1);
+		glUseProgram(0);
+
+		glBindVertexArray(0);
+	}
+};
 
 #endif
 

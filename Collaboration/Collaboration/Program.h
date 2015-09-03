@@ -13,8 +13,10 @@ private:
 
 protected:
 	/*OpenGL*/
+	 
 	GLFWwindow* _Window;
-
+	VectorTool vectors;
+	
 	/*Data*/
 	const int _WindowWidth = 1024;
 	const int _WindowHeight = 512;
