@@ -107,7 +107,7 @@ void Program::UpdateArea()
 void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f));
+	vectors.setcolor(Vector3(1.0f, 1.0f, 0.0f));
 	//vectors.setcolor({ { 1.0f, 1.0f, 1.0f },{ 1.0f, 1.0f, 1.0f } });
 
 	vector<Vector3> tehvector = 
