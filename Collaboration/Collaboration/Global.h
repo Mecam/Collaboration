@@ -117,8 +117,7 @@ public:
 		vectorshaders.use();
 		glPointSize(pointsize);
 		glDrawArrays(GL_POINTS, 0, 1);
-		glUseProgram(0);
-
+		 
 		glBindVertexArray(0);
 	}
 	void setcolor(Vector3 color)

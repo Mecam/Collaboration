@@ -28,9 +28,9 @@ static char* basicFragment = GLSL(
 );
 
 static char* Vectorv = GLSL(
-	layout(location = 0) in vec3 positon;
-	out vec3 Color;
+	layout(location = 0) in vec3 position;
 	layout(location = 1) in vec3 color;
+	out vec3 Color;
 	void main()
 	{
 		gl_Position = vec4(position, 1.0f);
