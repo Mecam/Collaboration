@@ -108,13 +108,13 @@ void Program::UpdateArea()
 void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	vectors.setcolor(Vector3(1.0f, 0.0f, 1.0f));
-	vectors.draw(tehvector, 100.0f);
+	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f));
+	vectors.draw(tehvector, 5.0f);
 	
-	_VertexObject->use();
+	//_VertexObject->use();
 	_ShaderProgram->use();
 	
-	if (_Mode == 1)
+	/*if (_Mode == 1)
 	{
 		_DogeTexture->use();
 		_Mode = 2;
@@ -134,7 +134,7 @@ void Program::RenderArea()
 	if (glfwGetKey(_Window, GLFW_KEY_ESCAPE) == true)
 	{
 		glfwSetWindowShouldClose(_Window, GL_TRUE);
-	}
+	}*/
 	
 	glfwSwapBuffers(_Window);
 }
