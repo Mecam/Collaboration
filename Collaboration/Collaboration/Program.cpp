@@ -27,7 +27,6 @@ void Program::InitProgram()
 
 	glewExperimental = GL_TRUE;
 	glewInit();
-	glEnable(GL_PROGRAM_POINT_SIZE);
 	//LoadGameContent();
 	//Area *AreaObject = new Area;
 	//AreaObject->LoadGameContent();
@@ -77,7 +76,7 @@ void Program::LoadGameContent()
 	Texture circuit("Tex/Circuit.jpg");
 	_CircuitTexture = &circuit;
 	
-	vectors.setup(tehvector);
+	vectors.setup();
 	Area1Loop();
 }
 
@@ -109,10 +108,12 @@ void Program::UpdateArea()
 void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	//vectors.draw(100.0f);
+	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f));
+	vectors.draw(tehvector, 10.0f);
 	
 	_VertexObject->use();
 	_ShaderProgram->use();
+	
 	if (_Mode == 1)
 	{
 		_DogeTexture->use();
@@ -128,7 +129,8 @@ void Program::RenderArea()
 		_CircuitTexture->use();
 		_Mode = 1;
 	}
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	//glDrawArrays(GL_TRIANGLES, 0, 6);
+	
 	if (glfwGetKey(_Window, GLFW_KEY_ESCAPE) == true)
 	{
 		glfwSetWindowShouldClose(_Window, GL_TRUE);
