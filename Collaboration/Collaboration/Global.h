@@ -8,7 +8,7 @@
 #include "Utils.h"
 #include "ShaderProgram.h"
 #include "ShaderDat.h"
-
+#include "Libraries\GLlibs\glm\glm.hpp"
 /*Includes*/
 #include <string>
 #include <vector>
@@ -69,19 +69,19 @@ struct Vector3
 	{
 		return{ X - Other.X, Y - Other.Y, Z - Other.Z };
 	}
+	glm::vec3 vec3()
+	{
+		return glm::vec3(X, Y, Z);
+	}
 };
 class VectorTool : public VertexObject
 {
 public:
-	Vector3* csvspointer;
+	 
 	ShaderProgram vectorshaders;
-	void setup(Vector3 &csvs)
+	void setup()
 	{
-		csvspointer = &csvs;
-
-		data.push_back(csvs.X);
-		data.push_back(csvs.Y);
-		data.push_back(csvs.Z);
+		 
 
 		vectorshaders.setup(Vectorv, Vectorf);
 
@@ -90,7 +90,7 @@ public:
 		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_DYNAMIC_DRAW);
+		 
 
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
@@ -98,12 +98,9 @@ public:
 		glBindVertexArray(0);
 
 	}
-	void draw(GLfloat pointsize)
+	void draw(glm::vec3 vector, GLfloat pointsize)
 	{
-		data.clear();
-		data.push_back(csvspointer->X);
-		data.push_back(csvspointer->Y);
-		data.push_back(csvspointer->Z);
+		 
 
 		glBindVertexArray(vao);
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_DYNAMIC_DRAW);
