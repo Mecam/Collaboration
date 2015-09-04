@@ -109,8 +109,8 @@ void Program::UpdateArea()
 void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	vectors.draw(100.0f);
-	/*
+	//vectors.draw(100.0f);
+	
 	_VertexObject->use();
 	_ShaderProgram->use();
 	if (_Mode == 1)
@@ -133,7 +133,7 @@ void Program::RenderArea()
 	{
 		glfwSetWindowShouldClose(_Window, GL_TRUE);
 	}
-	*/
+	
 	glfwSwapBuffers(_Window);
 }
 
