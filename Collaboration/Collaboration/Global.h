@@ -74,11 +74,14 @@ struct Vector3
 		return glm::vec3(X, Y, Z);
 	}
 };
-class VectorTool : public VertexObject
+class VectorTool 
 {
 public:
-	 
+	GLuint vao, vbo;
+	vector<GLfloat> data;
 	ShaderProgram vectorshaders;
+	glm::vec3 colors = glm::vec3(1.0f);
+	vector<Vector3> colorv;
 	void setup()
 	{
 		 
@@ -91,23 +94,68 @@ public:
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 		 
-
 		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+		glEnableVertexAttribArray(1);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 		glBindVertexArray(0);
 
 	}
-	void draw(glm::vec3 vector, GLfloat pointsize)
+	
+	void draw(Vector3 vector, GLfloat pointsize)
 	{
-		 
-
+		data.clear();
+		data.push_back(vector.vec3().x);
+		data.push_back(vector.vec3().y);
+		data.push_back(vector.vec3().z);
+		data.push_back(colors.x);
+		data.push_back(colors.y);
+		data.push_back(colors.z);
 		glBindVertexArray(vao);
-		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_DYNAMIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STREAM_DRAW);
 
 		vectorshaders.use();
-		glUniform1f(glGetUniformLocation(vectorshaders.prog, "pSize"), pointsize);
+		glPointSize(pointsize);
 		glDrawArrays(GL_POINTS, 0, 1);
+		glUseProgram(0);
+
+		glBindVertexArray(0);
+	}
+	void setcolor(Vector3 color)
+	{
+		colors = color.vec3();
+	}
+	void setcolor(vector<Vector3> color)
+	{
+		colorv = color;
+	}
+	void draw(vector<Vector3> vectors, GLfloat pointsize)
+	{
+		data.clear();
+		for (int i = 0; i < vectors.size(); i++)
+		{
+			data.push_back(vectors[i].vec3().x);
+			data.push_back(vectors[i].vec3().y);
+			data.push_back(vectors[i].vec3().z);
+			if (colorv.size() >= 1)
+			{
+				data.push_back(colorv[i].vec3().x);
+				data.push_back(colorv[i].vec3().y);
+				data.push_back(colorv[i].vec3().z);
+			}
+			else
+			{
+				data.push_back(colors.x);
+				data.push_back(colors.y);
+				data.push_back(colors.z);
+			}
+		}
+		glBindVertexArray(vao);
+		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STREAM_DRAW);
+
+		vectorshaders.use();
+		glPointSize(pointsize);
+		glDrawArrays(GL_POINTS, 0, data.size() / 2);
 		glUseProgram(0);
 
 		glBindVertexArray(0);
