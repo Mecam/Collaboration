@@ -108,8 +108,8 @@ void Program::UpdateArea()
 void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f));
-	vectors.draw(tehvector, 10.0f);
+	vectors.setcolor(Vector3(1.0f, 0.0f, 1.0f));
+	vectors.draw(tehvector, 100.0f);
 	
 	_VertexObject->use();
 	_ShaderProgram->use();
