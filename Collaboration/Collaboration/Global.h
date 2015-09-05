@@ -163,13 +163,25 @@ public:
 				data.push_back(colors.y);
 				data.push_back(colors.z);
 			}
+			if (line)
+			{
+				data.push_back(0.0f);
+				data.push_back(0.0f);
+				data.push_back(0.0f);
+				data.push_back(colors.x);
+				data.push_back(colors.y);
+				data.push_back(colors.z);
+			}
 		}
 		glBindVertexArray(vao);
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STREAM_DRAW);
 
 		vectorshaders.use();
 		glPointSize(pointsize);
-		glDrawArrays(GL_POINTS, 0, data.size() / 2);
+		if (line)
+			glDrawArrays(GL_LINES, 0, data.size());
+		else
+			glDrawArrays(GL_POINTS, 0, data.size() / 2);
 		glUseProgram(0);
 
 		glBindVertexArray(0);
