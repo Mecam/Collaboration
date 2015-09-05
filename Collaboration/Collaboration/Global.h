@@ -21,7 +21,7 @@
 #include <chrono>
 
 using namespace std;
-
+using namespace glm;
 #define PI 3.1415926535897932385
 #define TAU 6.2831853071795864769
 
@@ -72,6 +72,40 @@ struct Vector3
 	glm::vec3 vec3()
 	{
 		return glm::vec3(X, Y, Z);
+	}
+};
+
+struct quaternion
+{
+	float x, y, z, w;
+	quaternion(vec3 axis, float angle) : x(axis.x), y(axis.y), z(axis.z), w(angle)
+	{
+		float mag = this->lenght();
+		if(mag != 1.0f)
+		{
+			x /= mag;
+			y /= mag;
+			z /= mag;
+			w /= mag;
+		}
+	}
+	float lenght()
+	{
+		return sqrt(x * x + y * y + z * z + w * w);
+	}
+	quaternion operator*(quaternion B)
+	{
+		quaternion C(vec3(1.0f), 1.0f);
+
+		C.x = this->w*B.x + this->x*B.w + this->y*B.z - this->z*B.y;
+		C.y = this->w*B.y - this->x*B.z + this->y*B.w + this->z*B.x;
+		C.z = this->w*B.z + this->x*B.y - this->y*B.x + this->z*B.w;
+		C.w = this->w*B.w - this->x*B.x - this->y*B.y - this->z*B.z;
+		return C;
+	}
+	quaternion operator-()
+	{
+		return quaternion(vec3(this->x * -1.0f, this->y * -1.0f, this->z * -1.0f), this->w * -1.0f);
 	}
 };
 class VectorTool 
