@@ -148,9 +148,9 @@ public:
 		data.clear();
 		for (int i = 0; i < vectors.size(); i++)
 		{
-			data.push_back(vectors[i].vec3().x);
-			data.push_back(vectors[i].vec3().y);
-			data.push_back(vectors[i].vec3().z);
+			data.push_back(vectors[i].vec3().x / 10.0);
+			data.push_back(vectors[i].vec3().y / 10.0);
+			data.push_back(vectors[i].vec3().z / 10.0);
 			if (colorv.size() >= 1)
 			{
 				data.push_back(colorv[i].vec3().x);
