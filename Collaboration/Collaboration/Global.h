@@ -82,6 +82,7 @@ public:
 	ShaderProgram vectorshaders;
 	glm::vec3 colors = glm::vec3(1.0f);
 	vector<Vector3> colorv;
+	bool line;
 	void setup()
 	{
 		 
@@ -111,12 +112,26 @@ public:
 		data.push_back(colors.x);
 		data.push_back(colors.y);
 		data.push_back(colors.z);
+		
+
+		if (line)
+		{
+			data.push_back(0.0f);
+			data.push_back(0.0f);
+			data.push_back(0.0f);
+			data.push_back(colors.x);
+			data.push_back(colors.y);
+			data.push_back(colors.z);
+		}
 		glBindVertexArray(vao);
 		glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), &data[0], GL_STREAM_DRAW);
 
 		vectorshaders.use();
 		glPointSize(pointsize);
-		glDrawArrays(GL_POINTS, 0, 1);
+		if (line)
+			glDrawArrays(GL_LINES, 0, 2);
+		else
+			glDrawArrays(GL_POINTS, 0, 1);
 		 
 		glBindVertexArray(0);
 	}

@@ -109,7 +109,8 @@ void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f));
-	vectors.draw(tehvector, 5.0f);
+	vectors.line = true;
+	vectors.draw(tehvector, 100.0f);
 	
 	//_VertexObject->use();
 	_ShaderProgram->use();
