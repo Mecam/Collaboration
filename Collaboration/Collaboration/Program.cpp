@@ -115,7 +115,19 @@ void Program::RenderArea()
 	vectors.line = true;
 
 	static double a = 0;
-	a += (TAU * _DeltaTime / 1000.0) / 60.0;
+	time_t now;
+	struct tm newyear;
+	 
+
+	time(&now);   
+
+	localtime_s(&newyear, &now);
+
+	newyear.tm_hour = 0; newyear.tm_min = 0; newyear.tm_sec = 0;
+	newyear.tm_mon = 0;  newyear.tm_mday = 1;
+
+	 
+	a = (TAU * difftime(now, mktime(&newyear))) / 60.0;
 	Vector3 A(sin(a), cos(a), 0);
 	Vector3 B(sin(a / 60.0), cos(a / 60.0), 0);
 	Vector3 C(sin(a / 60.0 / 60.0) / 3.0, cos(a / 60.0 / 60.0) / 3.0, 0);
