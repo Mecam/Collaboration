@@ -109,9 +109,11 @@ void Program::RenderArea()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	vectors.setcolor(Vector3(10.0f, 10.0f, 10.0f));
+	vectors.line = false;
+	vectors.draw({ 0,0,0 }, 5.0f);
 	vectors.line = true;
 
-	vector<Vector3> tehvector = { {1.0, 1.0, 1.0} };
+	vector<Vector3> tehvector = { {1.0, 1.0, 1.0},{ -1.0, -0.5, 1.0 } };
 	vectors.draw(tehvector, 100.0f);
 	
 	//_VertexObject->use();
