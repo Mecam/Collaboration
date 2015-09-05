@@ -109,18 +109,21 @@ void Program::RenderArea()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	vectors.setcolor(Vector3(10.0f, 10.0f, 10.0f));
+	vectors.setcolor(Vector3(0.0f, 1.0f, 0.0f));
 	vectors.line = false;
 	vectors.draw({ 0,0,0 }, 5.0f);
 	vectors.line = true;
 
-	//static double a = 0;
-	//a += TAU * _DeltaTime / 1000.0;
-	//Vector3 A(sin(a), cos(a), 0);
-	Vector3 A(0, 1, 0);
-	Vector3 B(1, 0, 0);
-	vector<Vector3> tehvector = { A, B };//, A + B};
-	vectors.draw(tehvector, 100.0f);
+	static double a = 0;
+	a += (TAU * _DeltaTime / 1000.0) / 60.0;
+	Vector3 A(sin(a), cos(a), 0);
+	Vector3 B(sin(a / 60.0), cos(a / 60.0), 0);
+	Vector3 C(sin(a / 60.0 / 60.0) / 3.0, cos(a / 60.0 / 60.0) / 3.0, 0);
+	vector<Vector3> VectorList = { A, B };
+	vectors.draw(VectorList, 100.0f);
+	vectors.setcolor(Vector3(1.0f, 0.0f, 0.0f));
+	VectorList = { C };
+	vectors.draw(VectorList, 100.0f);
 	
 	//_VertexObject->use();
 	_ShaderProgram->use();
