@@ -120,18 +120,18 @@ void Program::RenderArea()
 
 	static double a = 0;
 	time_t now;
-	struct tm newyear;
+	struct tm midnight;
 	 
 
 	time(&now);   
 
-	localtime_s(&newyear, &now);
+	localtime_s(&midnight, &now);
 
-	newyear.tm_hour = 0; newyear.tm_min = 0; newyear.tm_sec = 0;
-	newyear.tm_mon = 0;  newyear.tm_mday = 1;
+	midnight.tm_hour = 0; midnight.tm_min = 0; midnight.tm_sec = 0;
+	 
 
 	 
-	a = (TAU * difftime(now, mktime(&newyear))) / 60.0;
+	a = (TAU * difftime(now, mktime(&midnight))) / 60.0;
 	Vector3 A(sin(a), cos(a), 0);
 	Vector3 B(sin(a / 60.0), cos(a / 60.0), 0);
 	Vector3 C(sin(a / 60.0 / 12.0) / 3.0, cos(a / 60.0 / 12.0) / 3.0, 0);
