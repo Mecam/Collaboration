@@ -130,7 +130,7 @@ void Program::RenderArea()
 	a = (TAU * difftime(now, mktime(&newyear))) / 60.0;
 	Vector3 A(sin(a), cos(a), 0);
 	Vector3 B(sin(a / 60.0), cos(a / 60.0), 0);
-	Vector3 C(sin(a / 60.0 / 60.0) / 3.0, cos(a / 60.0 / 60.0) / 3.0, 0);
+	Vector3 C(sin(a / 60.0 / 12.0) / 3.0, cos(a / 60.0 / 12.0) / 3.0, 0);
 	vector<Vector3> VectorList = { A, B };
 	vectors.draw(VectorList, 100.0f);
 	vectors.setcolor(Vector3(1.0f, 0.0f, 0.0f));
