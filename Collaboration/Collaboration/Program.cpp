@@ -3,7 +3,7 @@
 #define GLEW_STATIC
 
 #include "Program.h"
-Vector3 tehvector(0.5f, 0.5f, 0.5f);
+
 void Program::InitProgram()
 {
 	cout << "::SYSTEM:: " << "Initializing Program\n";
@@ -110,6 +110,8 @@ void Program::RenderArea()
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f));
 	vectors.line = true;
+
+	vector<Vector3> tehvector = { {1.0, 1.0, 1.0} };
 	vectors.draw(tehvector, 100.0f);
 	
 	//_VertexObject->use();
