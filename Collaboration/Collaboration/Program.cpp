@@ -112,8 +112,11 @@ void Program::RenderArea()
 	vectors.line = false;
 	vectors.draw({ 0,0,0 }, 5.0f);
 	vectors.line = true;
-
-	vector<Vector3> tehvector = { {1.0, 1.0, 1.0},{ -1.0, -0.5, 1.0 } };
+	static double a = 0;
+	a += 0.001;
+	Vector3 A(1, a, 0);
+	Vector3 B(1, 0, 0);
+	vector<Vector3> tehvector = { A, B, A + B };
 	vectors.draw(tehvector, 100.0f);
 	
 	//_VertexObject->use();
