@@ -100,6 +100,15 @@ void Program::UnloadGameContent()
 	delete _CircuitTexture;
 }
 
+void Program::Debugger()
+{
+	while (true)
+	{
+		this_thread::sleep_for(chrono::milliseconds(100));
+		cout << "Thread:" << _DeltaTime << "\n";
+	}
+}
+
 void Program::UpdateArea()
 {
 	//cout << "Delta Time: " << _DeltaTime << " Millisecconds\n";
@@ -167,12 +176,4 @@ void Program::RenderArea()
 	}*/
 	
 	glfwSwapBuffers(_Window);
-}
-
-void Program::foo()
-{
-	while(true)
-	{
-		cout << "Thread:" << _DeltaTime << "\n";
-	}
 }

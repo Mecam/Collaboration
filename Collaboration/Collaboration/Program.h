@@ -50,11 +50,11 @@ public:
 	void UnloadArea1Content();
 
 
+	void Debugger();
+
 	void UpdateArea();
 
 	void RenderArea();
-
-	void foo();
 };
 
 #endif
