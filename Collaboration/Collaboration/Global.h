@@ -26,6 +26,11 @@ using namespace glm;
 #define PI 3.1415926535897932385
 #define TAU 6.2831853071795864769
 
+template <typename T> int sgn(T val)
+{
+	return (T(0) < val) - (val < T(0));
+}
+
 class Vector3
 {
 public:

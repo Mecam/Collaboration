@@ -9,7 +9,7 @@ void Program::Area1Loop()
 	LoadArea1Content();
 
 	cout << "::SYSTEM:: " << "Starting New Thread\n";
-	thread Thread(&Program::foo, this);
+	thread Thread(&Program::Debugger, this);
 
 	cout << "::SYSTEM:: " << "Entering Area1 Loop\n";
 	while (!glfwWindowShouldClose(_Window))

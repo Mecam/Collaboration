@@ -100,6 +100,15 @@ void Program::UnloadGameContent()
 	delete _CircuitTexture;
 }
 
+void Program::Debugger()
+{
+	while (true)
+	{
+		this_thread::sleep_for(chrono::milliseconds(100));
+		cout << "Thread:" << _DeltaTime << "\n";
+	}
+}
+
 void Program::UpdateArea()
 {
 	//cout << "Delta Time: " << _DeltaTime << " Millisecconds\n";
@@ -119,14 +128,16 @@ void Program::RenderArea()
 	vectors.draw({ 0,0,0 }, 5.0f);
 	vectors.line = true;
 
-	Vector3 Normal(Normalize({ 2, -2, 0 }));
-	Vector3 Vector(Normalize({ -2, -0.5, 0 }));
-	Vector3 OUTPUT; double angle = AngleBetween(Normal, { 0,1,0 });
-	cout << angle << "\n";
+	Vector3 Normal(Normalize({ 2, -20, 0 }));
+	Vector3 Vector(Normalize({ -1, 0.5, 0 }));
+	double AngleBetweenNormalUp = AngleBetween(Normal, { 0,1,0 }) * sgn(sgn(Normal.X) + 0.5);
+	double AngleBetweenVectorUp = AngleBetween(Vector, { 0,1,0 }) * sgn(sgn(Vector.X) + 0.5);
+	double DifferanceAngles = AngleBetweenVectorUp - AngleBetweenNormalUp;
+	Vector3 OUTPUT(sin(DifferanceAngles), cos(DifferanceAngles), 0);
 
 	VectorList = { Normal };
 	vectors.setcolor(Vector3(0.0f, 0.0f, 1.0f)); vectors.draw(VectorList, 5.0f);
-	VectorList = { { Normal.Y, Normal.X, 0 }, {Normal.Y, -Normal.X, 0}, { -Normal.Y, Normal.X, 0 } };
+	VectorList = { { -Normal.X, -Normal.Y, 0 }, {Normal.Y, -Normal.X, 0}, { -Normal.Y, Normal.X, 0 } };
 	vectors.setcolor(Vector3(0.5f, 0.5f, 1.0f)); vectors.draw(VectorList, 5.0f);
 
 	VectorList = { Vector };
@@ -161,12 +172,4 @@ void Program::RenderArea()
 	}*/
 
 	glfwSwapBuffers(_Window);
-}
-
-void Program::foo()
-{
-	while(true)
-	{
-		cout << "Thread:" << _DeltaTime << "\n";
-	}
 }
