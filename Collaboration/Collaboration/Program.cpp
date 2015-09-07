@@ -110,6 +110,7 @@ void Program::RenderArea()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+
 	vectors.setcolor(Vector3(0.3f, 0.3f, 0.3f));
 	vectors.line = true;
 	vectors.draw({ { 1,0,0 },{ -1,0,0 },{ 0,1,0 },{ 0,-1,0 } }, 5.0f);
