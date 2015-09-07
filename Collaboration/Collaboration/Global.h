@@ -117,6 +117,11 @@ static double Magnitude(Vector3 InVector)
 		);
 }
 
+static double AngleBetween(Vector3 InVector1, Vector3 InVector2)
+{
+	return acos(Dot(InVector1, InVector2) / Magnitude(InVector1) * Magnitude(InVector2));
+}
+
 
 
 

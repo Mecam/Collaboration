@@ -121,10 +121,13 @@ void Program::RenderArea()
 
 	Vector3 Normal(Normalize({ 2, -2, 0 }));
 	Vector3 Vector(Normalize({ -2, -0.5, 0 }));
-	Vector3 OUTPUT = Vector - Normal;
+	Vector3 OUTPUT; double angle = AngleBetween(Normal, { 0,1,0 });
+	cout << angle << "\n";
 
-	VectorList = { Normal, {Normal.X} };
+	VectorList = { Normal };
 	vectors.setcolor(Vector3(0.0f, 0.0f, 1.0f)); vectors.draw(VectorList, 5.0f);
+	VectorList = { { Normal.Y, Normal.X, 0 }, {Normal.Y, -Normal.X, 0}, { -Normal.Y, Normal.X, 0 } };
+	vectors.setcolor(Vector3(0.5f, 0.5f, 1.0f)); vectors.draw(VectorList, 5.0f);
 
 	VectorList = { Vector };
 	vectors.setcolor(Vector3(0.0f, 1.0f, 0.0f)); vectors.draw(VectorList, 5.0f);
