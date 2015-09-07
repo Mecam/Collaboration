@@ -19,6 +19,7 @@
 #include <time.h>
 #include <Windows.h>
 #include <chrono>
+#include <thread>
 
 using namespace std;
 using namespace glm;

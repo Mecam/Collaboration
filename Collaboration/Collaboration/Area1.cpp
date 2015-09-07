@@ -8,6 +8,9 @@ void Program::Area1Loop()
 {
 	LoadArea1Content();
 
+	cout << "::SYSTEM:: " << "Starting New Thread\n";
+	thread Thread(&Program::foo, this);
+
 	cout << "::SYSTEM:: " << "Entering Area1 Loop\n";
 	while (!glfwWindowShouldClose(_Window))
 	{
@@ -23,6 +26,9 @@ void Program::Area1Loop()
 			_DeltaTime = _MaximumUpdateDelay;
 		}
 	}
+
+	cout << "::SYSTEM:: " << "Terminating Thread\n";
+	TerminateThread(&Thread, 0);
 
 	UnloadArea1Content();
 	UnloadGameContent();

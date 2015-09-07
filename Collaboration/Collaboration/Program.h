@@ -53,6 +53,8 @@ public:
 	void UpdateArea();
 
 	void RenderArea();
+
+	void foo();
 };
 
 #endif

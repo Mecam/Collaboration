@@ -102,7 +102,7 @@ void Program::UnloadGameContent()
 
 void Program::UpdateArea()
 {
-	cout << "Delta Time: " << _DeltaTime << " Millisecconds\n";
+	//cout << "Delta Time: " << _DeltaTime << " Millisecconds\n";
 }
 
 void Program::RenderArea()
@@ -169,3 +169,10 @@ void Program::RenderArea()
 	glfwSwapBuffers(_Window);
 }
 
+void Program::foo()
+{
+	while(true)
+	{
+		cout << "Thread:" << _DeltaTime << "\n";
+	}
+}
