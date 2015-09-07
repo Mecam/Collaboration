@@ -110,63 +110,41 @@ void Program::RenderArea()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-
-	vectors.setcolor(Vector3(0.3f, 0.3f, 0.3f));
-	vectors.line = true;
-	vectors.draw({ { 1,0,0 },{ -1,0,0 },{ 0,1,0 },{ 0,-1,0 } }, 5.0f);
-	vectors.setcolor(Vector3(0.0f, 1.0f, 0.0f));
+	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f));
 	vectors.line = false;
-	vectors.draw({ 0,0,0 }, 5.0f);
+	vectors.draw({ 0,0,0 }, 4.0f);
 	vectors.line = true;
 
-	static double a = 0;
-	time_t now;
-	struct tm midnight;
-	 
+	Vector3 A(2, -2, 0);
+	Vector3 B(-2, -0.5, 0);
+	vector<Vector3> VectorList = { A };
+	vectors.draw(VectorList, 5.0f);
 
-	time(&now);   
-
-	localtime_s(&midnight, &now);
-
-	midnight.tm_hour = 0; midnight.tm_min = 0; midnight.tm_sec = 0;
-	 
-
-	 
-	a = (TAU * difftime(now, mktime(&midnight))) / 60.0;
-	Vector3 A(sin(a), cos(a), 0);
-	Vector3 B(sin(a / 60.0), cos(a / 60.0), 0);
-	Vector3 C(sin(a / 60.0 / 12.0) / 3.0, cos(a / 60.0 / 12.0) / 3.0, 0);
-	vector<Vector3> VectorList = { A, B };
-	vectors.draw(VectorList, 100.0f);
-	vectors.setcolor(Vector3(1.0f, 0.0f, 0.0f));
-	VectorList = { C };
-	vectors.draw(VectorList, 100.0f);
-	
 	//_VertexObject->use();
 	_ShaderProgram->use();
-	
+
 	/*if (_Mode == 1)
 	{
-		_DogeTexture->use();
-		_Mode = 2;
+	_DogeTexture->use();
+	_Mode = 2;
 	}
 	else if (_Mode == 2)
 	{
-		_Texture->use();
-		_Mode = 3;
+	_Texture->use();
+	_Mode = 3;
 	}
 	else if (_Mode == 3)
 	{
-		_CircuitTexture->use();
-		_Mode = 1;
+	_CircuitTexture->use();
+	_Mode = 1;
 	}
 	//glDrawArrays(GL_TRIANGLES, 0, 6);
-	
+
 	if (glfwGetKey(_Window, GLFW_KEY_ESCAPE) == true)
 	{
-		glfwSetWindowShouldClose(_Window, GL_TRUE);
+	glfwSetWindowShouldClose(_Window, GL_TRUE);
 	}*/
-	
+
 	glfwSwapBuffers(_Window);
 }
 
