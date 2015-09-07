@@ -72,6 +72,10 @@ public:
 	{
 		return (X == Other.X && Y == Other.Y && Z == Other.Z ? true : false);
 	}
+	glm::vec3 vec3()
+	{
+		return glm::vec3(X, Y, Z);
+	}
 };
 
 

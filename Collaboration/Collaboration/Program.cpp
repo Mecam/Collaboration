@@ -119,11 +119,11 @@ void Program::RenderArea()
 	vectors.draw({ 0,0,0 }, 5.0f);
 	vectors.line = true;
 
-	Vector3 Normal(2, -2, 0);
-	Vector3 Vector(-2, -0.5, 0);
+	Vector3 Normal(Normalize({ 2, -2, 0 }));
+	Vector3 Vector(Normalize({ -2, -0.5, 0 }));
 	Vector3 OUTPUT = Vector - Normal;
 
-	VectorList = { Normal };
+	VectorList = { Normal, {Normal.X} };
 	vectors.setcolor(Vector3(0.0f, 0.0f, 1.0f)); vectors.draw(VectorList, 5.0f);
 
 	VectorList = { Vector };
