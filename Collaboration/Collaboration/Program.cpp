@@ -128,12 +128,30 @@ void Program::RenderArea()
 	vectors.draw({ 0,0,0 }, 5.0f);
 	vectors.line = true;
 
-	Vector3 Normal(Normalize({ 2, -20, 0 }));
-	Vector3 Vector(Normalize({ -1, 0.5, 0 }));
-	double AngleBetweenNormalUp = AngleBetween(Normal, { 0,1,0 }) * sgn(sgn(Normal.X) + 0.5);
-	double AngleBetweenVectorUp = AngleBetween(Vector, { 0,1,0 }) * sgn(sgn(Vector.X) + 0.5);
+	Vector3 Normal = { 1.5, -1, 0 };
+	Vector3 Vector= { -2, -1.5, 0 };
+	Vector3 NormalNorm(Normalize(Normal));
+	Vector3 VectorNorm(Normalize(Vector));
+	double AngleBetweenNormalUp = AngleBetween(NormalNorm, { 0,1,0 }) * sgn(sgn(NormalNorm.X) + 0.5);
+	double AngleBetweenVectorUp = AngleBetween(VectorNorm, { 0,1,0 }) * sgn(sgn(VectorNorm.X) + 0.5);
 	double DifferanceAngles = AngleBetweenVectorUp - AngleBetweenNormalUp;
 	Vector3 OUTPUT(sin(DifferanceAngles), cos(DifferanceAngles), 0);
+	OUTPUT = OUTPUT * Magnitude(Vector);
+
+	if (OUTPUT.Y < 0)
+	{
+		OUTPUT.Y = 0;
+		double OutMagnitude = Magnitude(OUTPUT);
+		double AngleBetweenOUTPUTUp = AngleBetween(OUTPUT, { 0,1,0 }) * sgn(sgn(OUTPUT.X) + 0.5);
+		double DifferanceAnglesReverse = AngleBetweenOUTPUTUp + AngleBetweenNormalUp;
+		OUTPUT = { sin(DifferanceAnglesReverse), cos(DifferanceAnglesReverse), 0 };
+		OUTPUT = OUTPUT * OutMagnitude;
+		//cout << DifferanceAnglesReverse << "\n";
+	}
+	else
+	{
+		OUTPUT = Vector;
+	}
 
 	VectorList = { Normal };
 	vectors.setcolor(Vector3(0.0f, 0.0f, 1.0f)); vectors.draw(VectorList, 5.0f);
