@@ -110,6 +110,7 @@ void Program::RenderArea()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+	vector<Vector3> VectorList;
 	vectors.setcolor(Vector3(0.3f, 0.3f, 0.3f));
 	vectors.line = true;
 	vectors.draw({ { 1,0,0 },{ -1,0,0 },{ 0,1,0 },{ 0,-1,0 } }, 5.0f);
@@ -118,10 +119,18 @@ void Program::RenderArea()
 	vectors.draw({ 0,0,0 }, 5.0f);
 	vectors.line = true;
 
-	Vector3 A(2, -2, 0);
-	Vector3 B(-2, -0.5, 0);
-	vector<Vector3> VectorList = { A };
-	vectors.draw(VectorList, 5.0f);
+	Vector3 Normal(2, -2, 0);
+	Vector3 Vector(-2, -0.5, 0);
+	Vector3 OUTPUT = Vector - Normal;
+
+	VectorList = { Normal };
+	vectors.setcolor(Vector3(0.0f, 0.0f, 1.0f)); vectors.draw(VectorList, 5.0f);
+
+	VectorList = { Vector };
+	vectors.setcolor(Vector3(0.0f, 1.0f, 0.0f)); vectors.draw(VectorList, 5.0f);
+
+	VectorList = { OUTPUT };
+	vectors.setcolor(Vector3(1.0f, 1.0f, 1.0f)); vectors.draw(VectorList, 5.0f);
 
 	//_VertexObject->use();
 	_ShaderProgram->use();

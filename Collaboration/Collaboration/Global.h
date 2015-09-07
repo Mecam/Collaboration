@@ -26,8 +26,9 @@ using namespace glm;
 #define PI 3.1415926535897932385
 #define TAU 6.2831853071795864769
 
-struct Vector3
+class Vector3
 {
+public:
 	Vector3(double x, double y, double z) : X(x), Y(y), Z(z) {}
 	Vector3() {}
 
@@ -35,46 +36,91 @@ struct Vector3
 	double Y;
 	double Z;
 
-
-	static Vector3 Cross(Vector3 Vector1, Vector3 Vector2)
-	{
-		return
-		{
-			Vector1.Y * Vector2.Z - Vector1.Z * Vector2.Y,
-			Vector1.Z * Vector2.X - Vector1.X * Vector2.Z,
-			Vector1.X * Vector2.Y - Vector1.Y * Vector2.X
-		};
-	}
-	static double Dot(Vector3 Vector1, Vector3 Vector2)
-	{
-		return
-		{
-			Vector1.X * Vector2.X + Vector1.Y * Vector2.Y + Vector1.Z * Vector2.Z
-		};
-	}
-	static Vector3 Invert(Vector3 Vector1)
-	{
-		return
-		{
-			-Vector1.X,
-			-Vector1.Y,
-			-Vector1.Z
-		};
-	}
-
-	Vector3 operator+(Vector3 Other)
+	Vector3 operator+(Vector3 Other)//Add 2 Vectors Together
 	{
 		return{ X + Other.X, Y + Other.Y, Z + Other.Z };
 	}
-	Vector3 operator-(Vector3 Other)
+	Vector3 operator+(double Other)//Add Vector and constant
+	{
+		return{ X + Other, Y + Other, Z + Other };
+	}
+	Vector3 operator-(Vector3 Other)//Subtract 2 Vectors Together
 	{
 		return{ X - Other.X, Y - Other.Y, Z - Other.Z };
 	}
-	glm::vec3 vec3()
+	Vector3 operator-(double Other)//Subtract Vector and constant
 	{
-		return glm::vec3(X, Y, Z);
+		return{ X - Other, Y - Other, Z - Other };
+	}
+	Vector3 operator*(Vector3 Other)//Multiply 2 Vectors Together
+	{
+		return{ X * Other.X, Y * Other.Y, Z * Other.Z };
+	}
+	Vector3 operator*(double Other)//Multiply Vector by constant
+	{
+		return{ X * Other, Y * Other, Z * Other };
+	}
+	Vector3 operator/(Vector3 Other)//Divide 2 Vectors
+	{
+		return{ X / Other.X, Y / Other.Y, Z / Other.Z };
+	}
+	Vector3 operator/(double Other)//Divide Vector and constant
+	{
+		return{ X / Other, Y / Other, Z / Other };
+	}
+	bool operator==(Vector3 Other)
+	{
+		return (X == Other.X && Y == Other.Y && Z == Other.Z ? true : false);
 	}
 };
+
+
+static Vector3 Cross(Vector3 InVector1, Vector3 InVector2)
+{
+	return
+	{
+		InVector1.Y * InVector2.Z - InVector1.Z * InVector2.Y,
+		InVector1.Z * InVector2.X - InVector1.X * InVector2.Z,
+		InVector1.X * InVector2.Y - InVector1.Y * InVector2.X
+	};
+}
+
+static double Dot(Vector3 InVector1, Vector3 InVector2)
+{
+	return
+	{
+		InVector1.X * InVector2.X + InVector1.Y * InVector2.Y + InVector1.Z * InVector2.Z
+	};
+}
+
+static Vector3 Normalize(Vector3 InVector)// Fix : Devision manual
+{
+	double Magnitude = sqrt(pow(InVector.X, 2) + pow(InVector.Y, 2) + pow(InVector.Z, 2));
+	return
+	{
+		InVector.X / Magnitude,
+		InVector.Y / Magnitude,
+		InVector.Z / Magnitude,
+	};
+}
+
+static double Magnitude(Vector3 InVector)
+{
+	return sqrt(
+		pow(InVector.X, 2) +
+		pow(InVector.Y, 2) +
+		pow(InVector.Z, 2)
+		);
+}
+
+
+
+
+
+
+
+
+
 
 struct quaternion
 {
